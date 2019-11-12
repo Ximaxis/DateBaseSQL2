@@ -1,17 +1,17 @@
 /*
- урок Урок 3. Вебинар. Введение в проектирование БД
- Задача 3
-Описание задания 3. Используя сервис http://filldb.info или другой по вашему желанию, 
-сгенерировать тестовые данные для всех таблиц, учитывая логику связей. 
-Для всех таблиц, где это имеет смысл, создать не менее 100 строк. 
-Создать локально БД vk и загрузить в неё тестовые данные.
+ СѓСЂРѕРє РЈСЂРѕРє 3. Р’РµР±РёРЅР°СЂ. Р’РІРµРґРµРЅРёРµ РІ РїСЂРѕРµРєС‚РёСЂРѕРІР°РЅРёРµ Р‘Р”
+ Р—Р°РґР°С‡Р° 3
+РћРїРёСЃР°РЅРёРµ Р·Р°РґР°РЅРёСЏ 3. РСЃРїРѕР»СЊР·СѓСЏ СЃРµСЂРІРёСЃ http://filldb.info РёР»Рё РґСЂСѓРіРѕР№ РїРѕ РІР°С€РµРјСѓ Р¶РµР»Р°РЅРёСЋ, 
+СЃРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ С‚РµСЃС‚РѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ РІСЃРµС… С‚Р°Р±Р»РёС†, СѓС‡РёС‚С‹РІР°СЏ Р»РѕРіРёРєСѓ СЃРІСЏР·РµР№. 
+Р”Р»СЏ РІСЃРµС… С‚Р°Р±Р»РёС†, РіРґРµ СЌС‚Рѕ РёРјРµРµС‚ СЃРјС‹СЃР», СЃРѕР·РґР°С‚СЊ РЅРµ РјРµРЅРµРµ 100 СЃС‚СЂРѕРє. 
+РЎРѕР·РґР°С‚СЊ Р»РѕРєР°Р»СЊРЅРѕ Р‘Р” vk Рё Р·Р°РіСЂСѓР·РёС‚СЊ РІ РЅРµС‘ С‚РµСЃС‚РѕРІС‹Рµ РґР°РЅРЅС‹Рµ.
 */
 
 drop database if exists vk;
 create database vk;
 use vk;
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists users;
 create table users (
@@ -24,12 +24,12 @@ create table users (
     INDEX users_phone_idx(phone),
     INDEX (firstname, lastname)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('1', 'Trevion', 'Stanton', 'linda.gerlach@example.com', NULL, '836.918.1976');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('2', 'Boyd', 'Bernhard', 'xmorissette@example.com', NULL, '(968)722-753');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('3', 'Claudie', 'Price', 'kaleigh.wolf@example.net', NULL, '(870)673-234');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('4', 'Olga', 'DuBuque', 'clarabelle02@example.com', NULL, '+48(4)592614');
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('5', 'Alyce', 'Yost', 'd\'amore.modesto@example.net', NULL, '+77(1)568735');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('5', 'Alyce', 'Yost', 'damore.modesto@example.net', NULL, '+77(1)568735');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('6', 'Modesto', 'Bailey', 'bertram.brown@example.net', NULL, '769.625.1045');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('7', 'Eryn', 'Kemmer', 'amara01@example.net', NULL, '(681)822-157');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('8', 'Doris', 'Sanford', 'vkreiger@example.net', NULL, '318-824-5998');
@@ -87,14 +87,14 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `p
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('60', 'Cullen', 'Mante', 'vicenta.rau@example.com', NULL, '370.264.3573');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('61', 'Gage', 'Heller', 'ospencer@example.com', NULL, '(990)892-265');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('62', 'Alanis', 'Pfannerstill', 'kertzmann.gertrude@example.net', NULL, '453.189.8462');
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('63', 'Austyn', 'O\'Hara', 'braulio63@example.net', NULL, '1-379-072-18');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('63', 'Austyn', 'OHara', 'braulio63@example.net', NULL, '1-379-072-18');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('64', 'Luciano', 'Hartmann', 'milton53@example.com', NULL, '088.851.9022');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('65', 'Isabel', 'Kunze', 'jerad19@example.org', NULL, '284.729.1147');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('66', 'Jamir', 'Haley', 'harmony.nikolaus@example.com', NULL, '502-165-8304');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('67', 'Frank', 'Conroy', 'dejah62@example.org', NULL, '603-071-4590');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('68', 'Missouri', 'Ryan', 'wolf.sterling@example.net', NULL, '09902579858');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('69', 'Pedro', 'Pacocha', 'lschroeder@example.net', NULL, '745-280-7594');
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('70', 'Gonzalo', 'O\'Conner', 'sjakubowski@example.com', NULL, '247.238.8672');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('70', 'Gonzalo', 'Conner', 'sjakubowski@example.com', NULL, '247.238.8672');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('71', 'Marcella', 'Marks', 'cwalker@example.com', NULL, '03114597874');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('72', 'Halie', 'Romaguera', 'dorris.kohler@example.org', NULL, '880.347.6705');
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('73', 'Pauline', 'Fadel', 'sosinski@example.com', NULL, '+65(3)941808');
@@ -127,7 +127,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `p
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password hash`, `phone`) VALUES ('100', 'Destinee', 'Zieme', 'meta95@example.net', NULL, '1-091-051-54');
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists `profiles`;
 create table `profiles` (
@@ -145,7 +145,7 @@ foreign key (user_id) references users(id)
 	on delete restrict 
 /*foreign key (photo_id) references media(id)*/
 ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `profiles` (`user_id`, `gender`, `birthday`, `photo_id`, `created_at`, `hometown`) VALUES ('1', NULL, '2011-03-04', '1', '1993-01-05 08:25:41', NULL);
 INSERT INTO `profiles` (`user_id`, `gender`, `birthday`, `photo_id`, `created_at`, `hometown`) VALUES ('2', NULL, '1993-03-18', '2', '1975-04-16 02:16:42', NULL);
@@ -249,7 +249,7 @@ INSERT INTO `profiles` (`user_id`, `gender`, `birthday`, `photo_id`, `created_at
 INSERT INTO `profiles` (`user_id`, `gender`, `birthday`, `photo_id`, `created_at`, `hometown`) VALUES ('100', NULL, '2016-01-26', '100', '2003-11-03 04:18:38', NULL);
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists messages;
 create table messages (
@@ -264,7 +264,7 @@ create table messages (
     foreign key (from_user_id) references users(id),
     foreign key (to_user_id) references users(id)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `created_at`) VALUES ('1', '1', '1', 'Praesentium impedit quia dolor neque ea iusto. Aut tenetur voluptatem qui quaerat.', '2014-09-14 22:47:06');
 INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `created_at`) VALUES ('2', '2', '2', 'Reiciendis aliquid consequatur nostrum. Voluptates aperiam et voluptas molestias rerum ut cupiditate. Officiis ullam dolorum consectetur perferendis. Facere beatae corporis doloribus voluptas sed voluptatibus.', '2000-05-11 14:57:27');
@@ -367,7 +367,7 @@ INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `created_at`
 INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `created_at`) VALUES ('99', '99', '99', 'Aliquid in aut minima eos dicta quibusdam architecto. Est ex enim debitis vero ullam adipisci tempora unde. Libero ab natus delectus cum dolor at. Voluptatem itaque sint inventore sed.', '1992-09-18 19:55:31');
 INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `created_at`) VALUES ('100', '100', '100', 'Ut eos et sit quod quisquam id. Repellendus nihil quas tenetur molestiae. Quam quaerat illum fugiat modi earum nostrum.', '1981-04-25 01:11:44');
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists friend_requests;
 create table friend_requests (
@@ -383,7 +383,7 @@ create table friend_requests (
     foreign key (initiator_user_id) references users(id),
     foreign key (target_user_id) references users(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `friend_requests` (`initiator_user_id`, `target_user_id`, `status`, `requested_at`, `confirmed_at`) VALUES ('1', '1', 'declined', '2018-07-03 16:39:28', '1986-11-04 21:13:12');
 INSERT INTO `friend_requests` (`initiator_user_id`, `target_user_id`, `status`, `requested_at`, `confirmed_at`) VALUES ('2', '2', 'approved', '2019-03-25 13:54:21', '2012-03-25 15:00:43');
@@ -486,7 +486,7 @@ INSERT INTO `friend_requests` (`initiator_user_id`, `target_user_id`, `status`, 
 INSERT INTO `friend_requests` (`initiator_user_id`, `target_user_id`, `status`, `requested_at`, `confirmed_at`) VALUES ('99', '99', 'requested', '1998-02-15 20:40:09', '1977-07-18 14:09:43');
 INSERT INTO `friend_requests` (`initiator_user_id`, `target_user_id`, `status`, `requested_at`, `confirmed_at`) VALUES ('100', '100', 'requested', '2000-01-15 17:56:11', '2011-12-09 00:00:31');
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists communities;
 create table communities(
@@ -495,7 +495,7 @@ create table communities(
 
 	index (name)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `communities` (`id`, `name`) VALUES ('66', 'a');
 INSERT INTO `communities` (`id`, `name`) VALUES ('27', 'ab');
@@ -598,7 +598,7 @@ INSERT INTO `communities` (`id`, `name`) VALUES ('53', 'voluptas');
 INSERT INTO `communities` (`id`, `name`) VALUES ('65', 'voluptas');
 INSERT INTO `communities` (`id`, `name`) VALUES ('78', 'voluptas');
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists users_communities;
 create table users_communities(
@@ -609,7 +609,7 @@ create table users_communities(
     foreign key (user_id) references users(id),
     foreign key (community_id) references communities(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `users_communities` (`user_id`, `community_id`) VALUES ('1', '1');
 INSERT INTO `users_communities` (`user_id`, `community_id`) VALUES ('2', '2');
@@ -712,7 +712,7 @@ INSERT INTO `users_communities` (`user_id`, `community_id`) VALUES ('98', '98');
 INSERT INTO `users_communities` (`user_id`, `community_id`) VALUES ('99', '99');
 INSERT INTO `users_communities` (`user_id`, `community_id`) VALUES ('100', '100');
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists media_types;
 create table media_types(
@@ -721,7 +721,7 @@ create table media_types(
     created_at datetime default NOW(),
     updated_at datetime default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `media_types` (`id`, `name`, `created_at`, `updated_at`) VALUES ('1', 'error', '2014-04-27 00:27:42', '1972-02-04 17:14:55');
 INSERT INTO `media_types` (`id`, `name`, `created_at`, `updated_at`) VALUES ('2', 'sunt', '2008-02-05 03:38:45', '2002-06-28 14:01:49');
@@ -825,7 +825,7 @@ INSERT INTO `media_types` (`id`, `name`, `created_at`, `updated_at`) VALUES ('99
 INSERT INTO `media_types` (`id`, `name`, `created_at`, `updated_at`) VALUES ('100', 'autem', '2017-04-13 13:21:30', '1996-02-12 12:45:37');
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists media;
 create table media(
@@ -843,7 +843,7 @@ create table media(
     foreign key (user_id) references users(id),
     foreign key (media_type_id) references media_types(id)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `media` (`id`, `media_type_id`, `user_id`, `body`, `filename`, `size`, `metadata`, `created_at`, `updated_at`) VALUES ('1', '1', '1', 'Molestiae dolorum optio earum est fugit sed aut. Et enim commodi cumque in. Reiciendis porro eligendi ut voluptatum autem eum in.', 'quos', 88191, NULL, '1980-01-09 02:51:29', '2016-03-30 21:10:06');
 INSERT INTO `media` (`id`, `media_type_id`, `user_id`, `body`, `filename`, `size`, `metadata`, `created_at`, `updated_at`) VALUES ('2', '2', '2', 'Beatae error tempore alias. Illum natus quaerat cumque soluta. Distinctio fuga atque sit repudiandae qui est rerum.', 'autem', 88967147, NULL, '2003-06-16 04:52:57', '2003-05-05 14:48:55');
@@ -946,7 +946,7 @@ INSERT INTO `media` (`id`, `media_type_id`, `user_id`, `body`, `filename`, `size
 INSERT INTO `media` (`id`, `media_type_id`, `user_id`, `body`, `filename`, `size`, `metadata`, `created_at`, `updated_at`) VALUES ('99', '99', '99', 'Dolorum non delectus et sint soluta architecto. Quo iusto facilis nisi beatae. Hic est sunt aliquam at. Et eos aut est et aliquam dolores et.', 'quasi', 386, NULL, '1974-09-24 22:05:29', '1990-05-12 22:19:14');
 INSERT INTO `media` (`id`, `media_type_id`, `user_id`, `body`, `filename`, `size`, `metadata`, `created_at`, `updated_at`) VALUES ('100', '100', '100', 'Et est pariatur atque placeat aut est et. Sint nulla ea minima dolore optio molestias quis. Nihil minus sunt voluptates a beatae aut.', 'aut', 414337374, NULL, '2006-10-12 12:46:42', '1998-07-31 01:44:01');
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists `photo_albums`;
 create table `photo_albums` (
@@ -957,7 +957,7 @@ create table `photo_albums` (
     foreign key (user_id) references users(id),
   	primary key (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `photo_albums` (`id`, `name`, `user_id`) VALUES ('1', 'rem', '1');
 INSERT INTO `photo_albums` (`id`, `name`, `user_id`) VALUES ('2', 'voluptate', '2');
@@ -1060,7 +1060,7 @@ INSERT INTO `photo_albums` (`id`, `name`, `user_id`) VALUES ('98', 'doloribus', 
 INSERT INTO `photo_albums` (`id`, `name`, `user_id`) VALUES ('99', 'delectus', '99');
 INSERT INTO `photo_albums` (`id`, `name`, `user_id`) VALUES ('100', 'in', '100');
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists `photos`;
 create table `photos` (
@@ -1071,7 +1071,7 @@ create table `photos` (
 	foreign key (album_id) references photo_albums(id),
     foreign key (media_id) references media(id)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `photos` (`id`, `album_id`, `media_id`) VALUES ('1', '1', '1');
 INSERT INTO `photos` (`id`, `album_id`, `media_id`) VALUES ('2', '2', '2');
@@ -1175,7 +1175,7 @@ INSERT INTO `photos` (`id`, `album_id`, `media_id`) VALUES ('99', '99', '99');
 INSERT INTO `photos` (`id`, `album_id`, `media_id`) VALUES ('100', '100', '100');
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists likes_media;
 create table likes_media(
@@ -1187,7 +1187,7 @@ create table likes_media(
     foreign key (media_id) references media(id),
     primary key (id)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `likes_media` (`id`, `user_id`, `media_id`, `created_at`) VALUES ('1', '1', '1', '1990-09-01 16:37:53');
 INSERT INTO `likes_media` (`id`, `user_id`, `media_id`, `created_at`) VALUES ('2', '2', '2', '1970-06-19 12:20:24');
@@ -1291,7 +1291,7 @@ INSERT INTO `likes_media` (`id`, `user_id`, `media_id`, `created_at`) VALUES ('9
 INSERT INTO `likes_media` (`id`, `user_id`, `media_id`, `created_at`) VALUES ('100', '100', '100', '1993-12-03 14:58:58');
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists likes_users;
 create table likes_users (
@@ -1305,7 +1305,7 @@ create table likes_users (
     foreign key (to_user_id) references users(id),
     primary key (id)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `likes_users` (`id`, `from_user_id`, `to_user_id`, `created_at`) VALUES ('1', '1', '1', '2016-06-18 02:44:50');
 INSERT INTO `likes_users` (`id`, `from_user_id`, `to_user_id`, `created_at`) VALUES ('2', '2', '2', '2017-07-17 03:51:55');
@@ -1409,7 +1409,7 @@ INSERT INTO `likes_users` (`id`, `from_user_id`, `to_user_id`, `created_at`) VAL
 INSERT INTO `likes_users` (`id`, `from_user_id`, `to_user_id`, `created_at`) VALUES ('100', '100', '100', '2005-01-16 10:52:16');
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists posts;
 create table posts (
@@ -1419,7 +1419,7 @@ create table posts (
     created_at datetime default now(),
     updated_at datetime default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `posts` (`id`, `user_id`, `body`, `created_at`, `updated_at`) VALUES ('1', '1', 'Qui et sunt molestiae sequi atque molestiae et. Earum ut accusamus mollitia possimus. Deleniti totam placeat necessitatibus deserunt ex. Rerum at quibusdam fuga quas.', '2000-06-10 16:53:51', '1976-09-18 10:40:49');
 INSERT INTO `posts` (`id`, `user_id`, `body`, `created_at`, `updated_at`) VALUES ('2', '2', 'Molestiae sapiente debitis qui doloremque ut corporis. Aspernatur exercitationem adipisci debitis placeat quia est. Voluptatum nesciunt non est quis et quis.', '1974-06-12 10:28:37', '2012-12-21 15:08:31');
@@ -1523,7 +1523,7 @@ INSERT INTO `posts` (`id`, `user_id`, `body`, `created_at`, `updated_at`) VALUES
 INSERT INTO `posts` (`id`, `user_id`, `body`, `created_at`, `updated_at`) VALUES ('100', '100', 'Molestiae et sed deserunt et illum. Non quas magnam sunt omnis ipsum quasi debitis. Corporis praesentium adipisci harum et sit. Reiciendis placeat aperiam enim hic reprehenderit. Excepturi voluptatem molestias vero.', '2010-11-26 05:30:57', '1999-06-15 12:02:28');
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
 drop table if exists likes_posts;
 create table likes_posts (
@@ -1535,7 +1535,7 @@ create table likes_posts (
     foreign key (post_id) references posts(id),
     primary key (id)
 )ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
 INSERT INTO `likes_posts` (`id`, `user_id`, `post_id`, `created_at`) VALUES ('1', '1', '1', '1971-05-13 10:32:22');
 INSERT INTO `likes_posts` (`id`, `user_id`, `post_id`, `created_at`) VALUES ('2', '2', '2', '1980-05-11 12:23:51');
