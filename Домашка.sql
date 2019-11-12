@@ -10,7 +10,7 @@ use vk;
 
 drop table if exists users;
 create table users (
-	id SERIAL primary key,
+	id serial primary key,
     firstname VARCHAR(100),
     lastname VARCHAR(100),
     email VARCHAR(100) unique,
@@ -22,7 +22,7 @@ create table users (
 
 drop table if exists `profiles`;
 create table `profiles` (
-	user_id SERIAL primary key,
+	user_id serial primary key,
     gender CHAR(1),
     birthday DATE,
 	photo_id bigint unsigned null,
@@ -40,7 +40,7 @@ foreign key (user_id) references users(id)
 
 drop table if exists messages;
 create table messages (
-	id SERIAL primary key,
+	id serial primary key,
 	from_user_id bigint unsigned not null,
     to_user_id bigint unsigned not null,
     body TEXT,
@@ -122,7 +122,7 @@ create table `photo_albums` (
 
 drop table if exists `photos`;
 create table `photos` (
-	id SERIAL primary key,
+	id serial primary key,
 	`album_id` bigint unsigned not null,
 	`media_id` bigint unsigned not null,
 
@@ -177,8 +177,8 @@ create table likes_posts (
 );
 
 
--- Создание таблиц
+-- РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†
 
--- Наполнение нужных данных
+-- РќР°РїРѕР»РЅРµРЅРёРµ РЅСѓР¶РЅС‹С… РґР°РЅРЅС‹С…
 
--- Скрипт самого задания
+-- РЎРєСЂРёРїС‚ СЃР°РјРѕРіРѕ Р·Р°РґР°РЅРёСЏ
