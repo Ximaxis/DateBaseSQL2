@@ -1,7 +1,7 @@
 /*
- урок 4
- Задача 1
-Описание задания: Заполнить все таблицы БД vk данными (по 10-100 записей в каждой таблице)
+ СѓСЂРѕРє 4
+ Р—Р°РґР°С‡Р° 1
+РћРїРёСЃР°РЅРёРµ Р·Р°РґР°РЅРёСЏ: Р—Р°РїРѕР»РЅРёС‚СЊ РІСЃРµ С‚Р°Р±Р»РёС†С‹ Р‘Р” vk РґР°РЅРЅС‹РјРё (РїРѕ 10-100 Р·Р°РїРёСЃРµР№ РІ РєР°Р¶РґРѕР№ С‚Р°Р±Р»РёС†Рµ)
 */
 
 drop database if exists vk;
@@ -262,7 +262,7 @@ INSERT INTO `messages` VALUES ('1','1','1','Quod similique aut illo quaerat eos.
 ('2','2','2','Enim nostrum expedita cum quidem. Nostrum illo provident voluptatem dolorum error vel neque. Error neque velit sequi. Accusantium porro sapiente consequatur.','1982-12-02 22:36:19'),
 ('3','3','3','Blanditiis mollitia temporibus nostrum velit quis et. Voluptatem cum vel et consectetur. Numquam incidunt quaerat quidem voluptas laborum porro asperiores et. Voluptas vitae provident ipsa quia voluptatum repellendus nemo quidem. Doloribus rerum dolores minus repellendus et non dolorem.','1992-08-24 17:56:43'),
 ('4','4','4','Animi tempore officia eos aperiam eligendi quas ex beatae. Exercitationem aperiam sapiente quo qui quas. Repellendus molestiae dolor dolore quo odit.','1994-09-10 04:27:34'),
-('5','5','5','Sapiente quia ut sed delectus ea. Sed quia et esse sed aliquid dolore doloremque. Recusandae praesentium rerum fuga sed facere et recusandae.','2016-08-27 16:32:11'),
+('5','5','5','Sapiente quia ut sed delectus ea. Sed quia et esse sed aliquid dolore doloremque. Recusandae praesentium rerum fuga sed facere et recusandae.','2020-08-27 16:32:11'),
 ('6','6','6','Perspiciatis consequatur sed et possimus qui voluptatem dolor esse. Itaque non dolorem dolor sunt inventore veritatis. Qui quo nihil sed perferendis tempore adipisci est. Tempora esse facilis possimus. Eos architecto maxime eaque nihil.','2005-04-22 06:49:26'),
 ('7','7','7','Expedita est veritatis beatae minus. Aspernatur perferendis dolores laboriosam magnam. Accusantium esse deserunt aut repellendus accusantium.','1986-01-09 21:45:12'),
 ('8','8','8','Omnis est ipsa quas. Consequuntur quidem qui quia ut. Nesciunt aliquam ipsam exercitationem sit provident nihil id. Voluptatem eos laudantium eveniet.','2009-07-08 04:56:14'),
@@ -278,7 +278,7 @@ INSERT INTO `messages` VALUES ('1','1','1','Quod similique aut illo quaerat eos.
 ('18','18','18','Atque delectus omnis exercitationem sit repellat velit deleniti. Adipisci sequi porro possimus qui occaecati eum. Ut est eum eaque deserunt accusamus velit.','1981-09-30 20:44:44'),
 ('19','19','19','Nemo sint iste saepe aut ut. Et voluptatum voluptatem sit quia. Quam enim reiciendis perferendis vel.','2014-08-17 07:15:18'),
 ('20','20','20','Nesciunt ducimus debitis a officia facilis tempora placeat. Maxime odio ratione dolores doloremque sit temporibus ullam. Suscipit aliquid et esse consequatur quam. Labore voluptates vitae velit consequatur.','2005-05-04 21:35:47'),
-('21','21','21','Est dolores sunt vel enim asperiores esse et. Velit ut fuga molestias aut debitis consequatur. Soluta aliquid tempora dolor consequatur ab dolor est.','2007-01-26 15:40:15'),
+('21','21','21','Est dolores sunt vel enim asperiores esse et. Velit ut fuga molestias aut debitis consequatur. Soluta aliquid tempora dolor consequatur ab dolor est.','2019-11-19 15:40:15'),
 ('22','22','22','Illo quibusdam fugiat aut perspiciatis ratione veniam. Libero et nostrum velit odit fugit ex. Molestiae nostrum asperiores dolores distinctio. Laboriosam totam suscipit ut ea in sunt.','1979-11-16 08:11:52'),
 ('23','23','23','Voluptatem ut aut laudantium ut. Ratione molestias et qui quod. Expedita explicabo voluptate rem eos recusandae ut doloremque.','2008-05-04 10:58:02'),
 ('24','24','24','Facilis dignissimos quidem nisi. Doloremque voluptatum laborum maiores ratione illum dolores quisquam. Sunt tenetur cumque voluptate occaecati amet laborum aut. Doloribus assumenda voluptatum ex qui.','1992-06-01 20:40:37'),
@@ -1514,18 +1514,18 @@ INSERT INTO `likes_posts` VALUES ('1','1','1','1995-09-18 18:45:31'),
 
 
 /*
- урок 4
- Задача 2
-Описание задания: Написать скрипт, возвращающий список имен (только firstname) пользователей без повторений в алфавитном порядке
+ СѓСЂРѕРє 4
+ Р—Р°РґР°С‡Р° 2
+РћРїРёСЃР°РЅРёРµ Р·Р°РґР°РЅРёСЏ: РќР°РїРёСЃР°С‚СЊ СЃРєСЂРёРїС‚, РІРѕР·РІСЂР°С‰Р°СЋС‰РёР№ СЃРїРёСЃРѕРє РёРјРµРЅ (С‚РѕР»СЊРєРѕ firstname) РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ Р±РµР· РїРѕРІС‚РѕСЂРµРЅРёР№ РІ Р°Р»С„Р°РІРёС‚РЅРѕРј РїРѕСЂСЏРґРєРµ
 */
 
-#SELECT distinct firstname
-#FROM users;
+SELECT distinct firstname
+FROM users;
 
 /*
- урок 4
- Задача 3
-Описание задания: Написать скрипт, отмечающий несовершеннолетних пользователей как неактивных (поле is_active = true). При необходимости предварительно добавить такое поле в таблицу profiles со значением по умолчанию = false (или 0)
+ СѓСЂРѕРє 4
+ Р—Р°РґР°С‡Р° 3
+РћРїРёСЃР°РЅРёРµ Р·Р°РґР°РЅРёСЏ: РќР°РїРёСЃР°С‚СЊ СЃРєСЂРёРїС‚, РѕС‚РјРµС‡Р°СЋС‰РёР№ РЅРµСЃРѕРІРµСЂС€РµРЅРЅРѕР»РµС‚РЅРёС… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєР°Рє РЅРµР°РєС‚РёРІРЅС‹С… (РїРѕР»Рµ is_active = true). РџСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕ РґРѕР±Р°РІРёС‚СЊ С‚Р°РєРѕРµ РїРѕР»Рµ РІ С‚Р°Р±Р»РёС†Сѓ profiles СЃРѕ Р·РЅР°С‡РµРЅРёРµРј РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ = false (РёР»Рё 0)
 */
 
 UPDATE `profiles`
@@ -1535,10 +1535,13 @@ WHERE
 	(YEAR(CURDATE())-YEAR(birthday)) < 18
 	and is_active = 0
 	;
-
+	
 /*
- урок 4
- Задача 4
-Описание задания:  Написать скрипт, удаляющий сообщения «из будущего» (дата позже сегодняшней)
+ СѓСЂРѕРє 4
+ Р—Р°РґР°С‡Р° 4
+РћРїРёСЃР°РЅРёРµ Р·Р°РґР°РЅРёСЏ:  РќР°РїРёСЃР°С‚СЊ СЃРєСЂРёРїС‚, СѓРґР°Р»СЏСЋС‰РёР№ СЃРѕРѕР±С‰РµРЅРёСЏ В«РёР· Р±СѓРґСѓС‰РµРіРѕВ» (РґР°С‚Р° РїРѕР·Р¶Рµ СЃРµРіРѕРґРЅСЏС€РЅРµР№)
 */
 
+delete from messages
+where ((now() + 0) - ((created_at) + 0 )) < 0
+;
