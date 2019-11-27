@@ -1,39 +1,70 @@
 ﻿/*
- урок 6 Практическое задание по теме  “Операторы, фильтрация, сортировка и ограничение. Агрегация данных”.
+ урок 7 Практическое задание по теме Тема “Сложные запросы”.
  Задача 1
-Описание задания: - Пусть задан некоторый пользователь. Из всех друзей этого пользователя найдите человека, который больше всех общался с нашим пользователем.
+Описание задания: - Составьте список пользователей users, которые осуществили хотя бы один заказ orders в интернет магазине.
+
 
 */
 
-select from_user_id, count(from_user_id) as total
-from messages
-where to_user_id = 1 -- выбраный юзер
-group by from_user_id
-order by from_user_id desc limit 1
+select *
+from users
+where id in (select user_id from orders  group by user_id)
 ;
 
 /*
- урок 6 Практическое задание по теме  “Операторы, фильтрация, сортировка и ограничение. Агрегация данных”.
+ урок 7 Практическое задание по теме  Тема “Сложные запросы”.
  Задача 2
-- Подсчитать общее количество лайков, которые получили пользователи младше 10 лет..
+- Выведите список товаров products и разделов catalogs, который соответствует товару.
 
 */
 
-select count(id) as total
-from likes
-where user_id IN ( 
-	select user_id from profiles where (YEAR(CURDATE())-YEAR(birthday)) < 10
-)
-;
+select id, name, (select name from catalogs where id = catalog_id) as catalog_name from products;
+
 
 /*
- урок 6 Практическое задание по теме  “Операторы, фильтрация, сортировка и ограничение. Агрегация данных”.
+ урок 7 Практическое задание по теме  Тема “Сложные запросы”.
  Задача 3
-- Определить кто больше поставил лайков (всего) - мужчины или женщины?
+Пусть имеется таблица рейсов flights (id, from, to) и таблица городов cities (label, name). Поля from, to и label содержат английские названия городов, поле name — русское. Выведите список рейсов flights с русскими названиями городов.
 */
 
-select profiles.gender, count(profiles.gender) as total
-from likes
-inner join profiles on profiles.user_id = likes.user_id
-group by gender
-order by total desc limit 1;
+
+-- Создание БД
+
+drop database if exists test;
+create database test;
+use test;
+
+drop table if exists flights;
+create table flights (
+	id serial primary key,
+	`from` VARCHAR(100),
+    `to` VARCHAR(100)
+);
+
+drop table if exists cities;
+create table cities (
+	name VARCHAR(100),
+    lable VARCHAR(100)
+);
+
+-- наполнение БД
+
+INSERT INTO flights (`from`, `to`) values
+('moscow', 'omsk'),
+('nongorod', 'kazan'),
+('irkutsk', 'moscow' ),
+('omsk', 'irkutsk'),
+('moscow', 'kazan')
+;
+
+INSERT INTO cities (name, lable) values
+('moscow', 'Москва'),
+('nongorod', 'Новгород'),
+('irkutsk', 'Иркутск'),
+('omsk', 'Омск'),
+('kazan', 'Казань')
+;
+
+-- рушение задачи
+
+select id, (select lable from cities where name = `from`) as `from`, (select lable from cities where name = `to`) as `to` from flights;
