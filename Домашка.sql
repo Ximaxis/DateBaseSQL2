@@ -3,12 +3,12 @@
  Задача 1
 Описание задания: - Составьте список пользователей users, которые осуществили хотя бы один заказ orders в интернет магазине.
 
-
 */
 
-select *
+select users.*
 from users
-where id in (select user_id from orders  group by user_id)
+join  orders ON users.id = orders.user_id
+group by users.id
 ;
 
 /*
@@ -18,7 +18,10 @@ where id in (select user_id from orders  group by user_id)
 
 */
 
-select id, name, (select name from catalogs where id = catalog_id) as catalog_name from products;
+select p.id, p.name, c.name as catalog_name 
+from products p
+join catalogs c on p.catalog_id = c.id
+;
 
 
 /*
@@ -65,6 +68,11 @@ INSERT INTO cities (name, lable) values
 ('kazan', 'Казань')
 ;
 
--- рушение задачи
+-- решение задачи
 
-select id, (select lable from cities where name = `from`) as `from`, (select lable from cities where name = `to`) as `to` from flights;
+select f.id, c.lable as `from`, z.lable as `to` 
+from flights f
+join cities c on f.`from` = c.name
+join cities z on f.`to` = z.name
+order by f.id
+;
