@@ -72,7 +72,7 @@ begin
 end; //
 
 drop trigger if exists update_products//
-create update_products before update on products for each row
+create trigger update_products before update on products for each row
 begin
   if new.name is null and new.description is null
     then signal sqlstate '45001' set message_text = "values can not be null"; 
