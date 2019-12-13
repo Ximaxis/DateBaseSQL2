@@ -1,84 +1,85 @@
 ﻿/*
- урок 9 Практическое задание по теме Тема “Транзакции, переменные, представления”
-.
+ урок 11 Практическое задание по теме Тема  “Оптимизация запросов”
+
  Задача 1
-Описание задания: - В базе данных shop и sample присутствуют одни и те же таблицы, учебной базы данных. Переместите запись id = 1 из таблицы shop.users в таблицу sample.users. Используйте транзакции.
+Описание задания: - Создайте таблицу logs типа Archive. 
+Пусть при каждом создании записи в таблицах users, catalogs и products в таблицу logs помещается: 
+время и дата создания записи, название таблицы, идентификатор первичного ключа и содержимое поля name.
+
 
 */
 
+use shop;
 
-start transaction;
-insert into sample.users (select * from shop.users where shop.users.id = 1);
-commit;
-
-
-
-/*
- урок 9 Практическое задание по теме  Тема “Транзакции, переменные, представления”
- Задача 2
-- Создайте представление, которое выводит название name товарной позиции из таблицы products и соответствующее название каталога name из таблицы catalogs.
-
-*/
-
-create view cat as 
-select p.name , c.name as catalog_name 
-from products p 
-join catalogs c on p.catalog_id = c.id
-order by p.name;
+drop table if exists logs;
+create table logs(
+	created_at DATETIME default now(),
+	name_table VARCHAR(255) not null,
+	id_write INT, unsigned not null 
+	content_name VARCHAR(255) 
+) engine=arhive ;
 
 
 
-/*
- урок 9 Практическое задание по теме  Тема “Хранимые процедуры и функции, триггеры".
- Задача 1
-Создайте хранимую функцию hello(), которая будет возвращать приветствие, в зависимости от текущего времени суток. 
-С 6:00 до 12:00 функция должна возвращать фразу "Доброе утро", с 12:00 до 18:00 функция должна возвращать фразу "Добрый день", с 18:00 до 00:00 — "Добрый вечер", с 00:00 до 6:00 — "Доброй ночи".
-
-*/
-DELIMITER //
-
-drop function if exists hello //
-create function hello ()
-returns text deterministic
+drop trigger if exists insert_users;
+create trigger insert_users before insert on users for each row
 begin
-  return case
-      when 060000 <= curtime() + 0 and curtime() + 0 < 120000 then "Доброе утро"
-      when 120000 <= curtime() + 0 and curtime() + 0 < 180000 then "Добрый день"
-      when 180000 <= curtime() + 0 and curtime() + 0 <= 235959 then "Добрый вечер"
-      else "Доброй ночи"
-    end;
-end //
+	insert into shop.logs
+	set 
+	name_table = 'users',
+    id_write = NEW.id,
+    content_name = NEW.name;
+end;
 
-DELIMITER ;
+drop trigger if exists insert_catalogs;
+create trigger insert_catalogs before insert on catalogs for each row
+begin
+	insert into shop.logs
+	set 
+	name_table = 'catalogs',
+    id_write = NEW.id,
+    content_name = NEW.name;
+end;
 
-select hello ();
-
-/*
- урок 9 Практическое задание по теме  Тема “Хранимые процедуры и функции, триггеры".
- Задача 2
-В таблице products есть два текстовых поля: name с названием товара и description с его описанием. 
-Допустимо присутствие обоих полей или одно из них. Ситуация, когда оба поля принимают неопределенное значение NULL неприемлема. 
-Используя триггеры, добейтесь того, чтобы одно из этих полей или оба поля были заполнены. При попытке присвоить полям NULL-значение необходимо отменить операцию.
-
-*/
-DELIMITER //
-
-drop trigger if exists insert_products//
+drop trigger if exists insert_products;
 create trigger insert_products before insert on products for each row
 begin
-  if new.name is null and new.description is null
-    then signal sqlstate '45001' set message_text = "values can not be null"; 
-  end if;
-end; //
-
-drop trigger if exists update_products//
-create trigger update_products before update on products for each row
-begin
-  if new.name is null and new.description is null
-    then signal sqlstate '45001' set message_text = "values can not be null"; 
-  end if;
-end; //
+	insert into shop.logs
+	set 
+	name_table = 'products',
+    id_write = NEW.id,
+    content_name = NEW.name;
+end;
 
 
-DELIMITER ;
 
+
+/*
+ урок 11 Практическое задание по теме  Тема “NoSQL”
+ Задача 1
+В базе данных Redis подберите коллекцию для подсчета посещений с определенных IP-адресов.
+
+*/
+
+HSET ipaddr 127.0.0.1 1
+
+/*
+ урок 11 Практическое задание по теме  Тема “NoSQL”
+ Задача 2
+При помощи базы данных Redis решите задачу поиска имени пользователя по электронному адресу и наоборот, поиск электронного адреса пользователя по его имени.
+
+*/
+
+set Maxim mail@mail.ru
+set mail@mail Maxim
+get Maxim
+get mail@mail.ru
+
+/*
+ урок 11 Практическое задание по теме  Тема “NoSQL”
+ Задача 3
+Организуйте хранение категорий и товарных позиций учебной базы данных shop в СУБД MongoDB.
+
+*/
+
+shop.products.insert({name: "Intel Core i3-8100", description: "Процессор для настольных персональных компьютеров, основанных на платформе Intel.", price: 7890.00, catalog: "Процессоры" })
